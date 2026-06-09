@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Cut</title>
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111;
+color:white;
+text-align:center;
+padding:20px;
+}
+.card{
+background:#222;
+padding:15px;
+border-radius:10px;
+margin:10px;
+}
+input{
+padding:10px;
+width:80%;
+margin:5px;
+}
+button{
+padding:10px 20px;
+background:#28a745;
+color:white;
+border:none;
+border-radius:5px;
+}
+</style>
+</head>
+<body>
+
+<h1>💪 Adam Cut</h1>
+
+<div class="card">
+<h2>الوزن الحالي</h2>
+<input type="number" id="weight" placeholder="أدخل وزنك">
+<button onclick="saveWeight()">حفظ</button>
+<p id="result"></p>
+</div>
+
+<script>
+function saveWeight(){
+let w=document.getElementById("weight").value;
+localStorage.setItem("weight",w);
+document.getElementById("result").innerHTML=
+"تم حفظ الوزن: "+w+" كغ";
+}
+</script>
+
+</body>
+</html>
