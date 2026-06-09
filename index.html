@@ -9,26 +9,32 @@ body{
 font-family:Arial,sans-serif;
 background:#111;
 color:white;
-text-align:center;
 padding:20px;
+text-align:center;
 }
 .card{
 background:#222;
 padding:15px;
-border-radius:10px;
-margin:10px;
+margin:10px 0;
+border-radius:12px;
 }
 input{
+width:90%;
 padding:10px;
-width:80%;
 margin:5px;
+border-radius:8px;
+border:none;
 }
 button{
 padding:10px 20px;
+border:none;
+border-radius:8px;
 background:#28a745;
 color:white;
-border:none;
-border-radius:5px;
+font-size:16px;
+}
+h1{
+color:#28a745;
 }
 </style>
 </head>
@@ -38,17 +44,42 @@ border-radius:5px;
 
 <div class="card">
 <h2>الوزن الحالي</h2>
-<input type="number" id="weight" placeholder="أدخل وزنك">
-<button onclick="saveWeight()">حفظ</button>
-<p id="result"></p>
+<input id="weight" type="number" placeholder="أدخل وزنك">
+<button onclick="saveWeight()">حفظ الوزن</button>
+<p id="weightResult"></p>
+</div>
+
+<div class="card">
+<h2>السعرات اليوم</h2>
+<input id="calories" type="number" placeholder="السعرات التي أكلتها">
+<button onclick="saveCalories()">حفظ</button>
+<p id="caloriesResult"></p>
+</div>
+
+<div class="card">
+<h2>البروتين اليوم</h2>
+<input id="protein" type="number" placeholder="غرام البروتين">
+<button onclick="saveProtein()">حفظ</button>
+<p id="proteinResult"></p>
 </div>
 
 <script>
 function saveWeight(){
 let w=document.getElementById("weight").value;
 localStorage.setItem("weight",w);
-document.getElementById("result").innerHTML=
-"تم حفظ الوزن: "+w+" كغ";
+document.getElementById("weightResult").innerHTML="وزنك الحالي: "+w+" كغ";
+}
+
+function saveCalories(){
+let c=document.getElementById("calories").value;
+localStorage.setItem("calories",c);
+document.getElementById("caloriesResult").innerHTML="السعرات: "+c;
+}
+
+function saveProtein(){
+let p=document.getElementById("protein").value;
+localStorage.setItem("protein",p);
+document.getElementById("proteinResult").innerHTML="البروتين: "+p+" غ";
 }
 </script>
 
